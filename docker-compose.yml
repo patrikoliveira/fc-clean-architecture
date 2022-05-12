@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  node:
+    image: node:14
+    container_name: fc-clean-architecture
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/srv/app
+    working_dir: /srv/app
+    command: 'tail -f /dev/null'
