@@ -33,8 +33,6 @@ describe("Test update product use case", () => {
     }
 
     const output = await useCase.execute(input);
-    console.log(output);
-    // const result = await repository.find(output.id);
     expect(output).toEqual(input);
   });
 });
