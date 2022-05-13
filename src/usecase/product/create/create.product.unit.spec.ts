@@ -41,12 +41,11 @@ describe("Unit test create product use case", () => {
       price: 10,
     }
     const repository = MockRepository();
-    const error = new Error("Id is required");
     const productCreateUseCase = new CreateProductUseCase(repository);
 
     await expect(
       productCreateUseCase.execute(input)
-    ).rejects.toThrowError(error);
+    ).rejects.toThrowError("product: Id is required");
 
     expect(repository.create).not.toHaveBeenCalled();
   });
@@ -58,12 +57,11 @@ describe("Unit test create product use case", () => {
       price: 10,
     }
     const repository = MockRepository();
-    const error = new Error("Name is required");
     const productCreateUseCase = new CreateProductUseCase(repository);
 
     await expect(
       productCreateUseCase.execute(input)
-    ).rejects.toThrowError(error);
+    ).rejects.toThrowError("product: Name is required");
 
     expect(repository.create).not.toHaveBeenCalled();
   });
@@ -77,12 +75,11 @@ describe("Unit test create product use case", () => {
     };
 
     const repository = MockRepository();
-    const error = new Error("Price must be greater than zero");
     const productCreateUseCase = new CreateProductUseCase(repository);
 
     await expect(
       productCreateUseCase.execute(input)
-    ).rejects.toThrowError(error);
+    ).rejects.toThrowError("product: Price must be greater than zero");
 
     expect(repository.create).not.toHaveBeenCalled();
   });
